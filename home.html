@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- css file과 링크하기 위해 신규로 추가하는 static file -->
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>환율변환기</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'home.css' %}?v=0.81"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="main_subject"><h2>쉬운 환전 계산</h2></div>
+
+    <section name="s_VND_KRW">
+      <div class="d_VND_KRW">
+        VND
+        <i class="fas fa-exchange-alt"></i>
+        KRW
+      </div>
+      <div class="d_f_VND_KRW">
+        <form nmae="f_VND_KRW" action="{% url 'vnd' %}" method="get">
+          <textarea name="amount" id="VND_KRW" cols="30" rows="2"></textarea>
+          <button type="submit">베트남동 한화 변환하기</button>
+        </form>
+      </div>
+    </section>
+    <br /><br />
+
+    <section name="s_KRW_VND">
+      <div class="d_KRW_VND">
+        KRW
+        <i class="fas fa-exchange-alt"></i>
+        VND
+      </div>
+      <div class="d_f_KRW_VND">
+        <form name="f_KRW_VND" action="{% url 'krw' %}" method="get">
+          <textarea name="amount" id="KRW_VND" cols="30" rows="2"></textarea>
+          <button type="submit">한화 베트남동 변환하기</button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
